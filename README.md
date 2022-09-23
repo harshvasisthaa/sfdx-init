@@ -1,4 +1,4 @@
-# SFDX Simple App
+# SFDX Init App
 
 > **THIS PROJECT IS NO LONGER MAINTAINED. To learn about Salesforce Development with version control see the Trailhead project [Develop an App with Salesforce CLI and Source Control](https://trailhead.salesforce.com/content/learn/projects/develop-app-with-salesforce-cli-and-source-control).**
 
@@ -12,11 +12,11 @@ Our first goal is to set up a developer project which we'll use to modify our ap
 
 … or ...
 
-    git clone git@github.com:forcedotcom/sfdx-simple.git
+    git clone git@github.com:forcedotcom/sfdx-init.git
 
 … to clone the repository. Then, open the directory.
 
-    cd sfdx-simple
+    cd sfdx-init
     
 ## Steps
 
