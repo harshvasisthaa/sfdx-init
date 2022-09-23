@@ -8,7 +8,7 @@ The Salesforce Developer Experience (SFDX) starts with source code living in you
 
 Our first goal is to set up a developer project which we'll use to modify our application. It starts by cloning the repository. Use the command ...
 
-    git clone https://github.com/forcedotcom/sfdx-simple.git
+    git clone https://github.com/harshvasisthaa/sfdx-init.git
 
 … or ...
 
@@ -63,4 +63,4 @@ For details on using sfdx-simple, please review the [Salesforce DX Developer Gui
 
 ## Issues
 
-Please log issues related to this repository [here](https://github.com/forcedotcom/sfdx-simple/issues).
+Please log issues related to this repository [here](https://github.com/harshvasisthaa/sfdx-init/issues).
