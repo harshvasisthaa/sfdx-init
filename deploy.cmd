@@ -1,20 +1,18 @@
 @echo off
-set SFDC_PROD_URL="https://test.salesforce.com"
-set SFDC_SANDBOX_URL="https://login.salesforce.com"
+set SFDC_ORG_URL="https://login.salesforce.com"
+set SFDC_ORG_USER="harsh.rawat@absyz.com.deplyment"
+set PROD_CONSUMER_KEY="3MVG9fe4g9fhX0E6kcopvWInnuBJxpZc1Niht_.nYiM3dPSbqk7lq3JC2i0iecHSLHHjiBYkh"
 
-set SFDC_PROD_USER="harshvijaykumarrawat@gmail.com"
-set SFDC_SANDBOX_USER="harshvijaykumarrawat@gmail.com"
-
-set SANDBOX_CONSUMER_KEY="testconkey"
-set PROD_CONSUMER_KEY="3MVG9fe4g9fhX0E6kcopvWInnuBJxpZc1Niht_PenbEv4hgc3_.nYiM3dPSbqk7lq3JC2i0iecHSLHHjiBYkh"
-set PROD_CONSUMER_SEC="A2AB75CA3AA396F5918181D216640A99F831FDB02DFC432F34E4E10B87FF1B92"
-
-set GIT_REPO_LOCATION="test/location/"
+set PROJECT_FOLDER="project"
+set DEPLOY_LOCATION="./force-app/main/default"
 
 echo %SFDC_PROD_URL%
 echo %SFDC_PROD_USER%
 
+call sfdx auth:jwt:grant -u %SFDC_PROD_USER% -f ./key/server.key -i %PROD_CONSUMER_KEY% -r %SFDC_PROD_URL%
+cd %PROJECT_FOLDER%
 
-sfdx force:auth:jwt:grant --clientid %CONSUMER_KEY% --username %SFDC_PROD_USER% --jwtkeyfile key/server.key --setdefaultdevhubusername --setalias sfdx-ci --instanceurl %SFDC_PROD_URL%
-sfdx force:source:convert -d mdapi
-sfdx force:deploy -p %SOURCE_PATH% -u %SFDC_PROD_USER%
+if %1==1 call sfdx force:source:deploy -p %DEPLOY_LOCATION% -u %SFDC_PROD_USER% -l NoTestRun
+if %1==2 call sfdx force:source:deploy -p %DEPLOY_LOCATION% -u %SFDC_PROD_USER% -l RunLocalTests
+if %1==3 call sfdx force:source:deploy -p %DEPLOY_LOCATION% -u %SFDC_PROD_USER% -l RunSpecifiedTests -r %2
+cd..
